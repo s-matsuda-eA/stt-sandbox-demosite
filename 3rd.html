@@ -3,7 +3,7 @@
 <meta charset="utf-8" />
 
 <head>
-  <title> 事象再現パターン | 動的追加検証 </title>
+  <title> 実験パターン | 動的追加検証 </title>
   <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=24906"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="./js/inview.js"></script>
@@ -43,18 +43,23 @@
       $('.view-target').on('inview', function() {
         $('.view-target > *').show()
         setTimeout(function(){
-          const template = `
+          const targetUl = $('.scroll-append-list')
+          const styleElm = `
           <style>
             ul.view-target > div >li {
               color: #FFF;
             }
           </style>
+          `
+          targetUl.before(styleElm)
+
+          const template = `
           <div class="inner-wrap">
             <li><div><p>リストアイテムひとつめ<p></div></li>
             <li><div><p>リストアイテムふたつめ<p></div></li>
           </div>
           `
-          $(".scroll-append-list").append(template)
+          targetUl.append(template)
         },1000)
       })
     })
