@@ -4,13 +4,47 @@
 
 <head>
   <title>top | demo</title>
-  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=24015"></script>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=24906"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./js/inview.js"></script>
+  <style>
+    main {
+      margin: 3rem;
+      padding: 1rem 2rem;
+      height: 100vh;
+      background-color: #EEE;
+    }
+    section {
+      margin: 3rem;
+      height: 20vh;
+      background-color: #999;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>top</h1>
-  <p>demosite</p>
-  <a href="./second.html">contents</a>
+  <main>
+    <h1>top</h1>
+    <p>demosite</p>
+    <a href="./second.html">contents</a>
+  </main>
+  <section class="view-target">
+    <h2>スクロールイベント</h2>
+    <div class="list-wrapper">
+      <ul class="scroll-append-list"></ul>
+    </div>
+  </section>
+  <script>
+    $(function() {
+      $('.view-target > *').hide()
+      $('.view-target').on('inview', function() {
+        $('.view-target > *').show()
+        setTimeout(function(){
+          $(".scroll-append-list").append('<li>リストアイテムひとつめ</li>')
+        },1000)
+      })
+    })
+  </script>
 </body>
 
 </html>
