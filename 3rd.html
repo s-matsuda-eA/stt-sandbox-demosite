@@ -40,27 +40,29 @@
   <script>
     $(function() {
       $('.view-target > *').hide()
-      $('.view-target').on('inview', function() {
-        $('.view-target > *').show()
-        setTimeout(function(){
-          const targetUl = $('.scroll-append-list')
-          const styleElm = `
-          <style>
-            ul.view-target > div >li {
-              color: #FFF;
-            }
-          </style>
-          `
-          targetUl.before(styleElm)
+      $('.view-target').on('inview', function(e, isInView) {
+        if(isInView){
+          $('.view-target > *').show()
+          setTimeout(function(){
+            const targetUl = $('.scroll-append-list')
+            const styleElm = `
+            <style>
+              ul.view-target > div >li {
+                color: #FFF;
+              }
+            </style>
+            `
+            targetUl.before(styleElm)
 
-          const template = `
-          <div class="inner-wrap">
-            <li><div><p>リストアイテムひとつめ<p></div></li>
-            <li><div><p>リストアイテムふたつめ<p></div></li>
-          </div>
-          `
-          targetUl.append(template)
-        },1000)
+            const template = `
+            <div class="inner-wrap">
+              <li><div><p>リストアイテムひとつめ<p></div></li>
+              <li><div><p>リストアイテムふたつめ<p></div></li>
+            </div>
+            `
+            targetUl.append(template)
+          },1000)
+        }
       })
     })
   </script>

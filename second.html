@@ -40,22 +40,24 @@
   <script>
     $(function() {
       $('.view-target > *').hide()
-      $('.view-target').on('inview', function() {
-        $('.view-target > *').show()
-        setTimeout(function(){
-          const template = `
-          <style>
-            ul.view-target > div >li {
-              color: #FFF;
-            }
-          </style>
-          <div class="inner-wrap">
-            <li><div><p>リストアイテムひとつめ<p></div></li>
-            <li><div><p>リストアイテムふたつめ<p></div></li>
-          </div>
-          `
-          $(".scroll-append-list").append(template)
-        },1000)
+      $('.view-target').on('inview', function(e,isInView) {
+        if(isInView){        
+          $('.view-target > *').show()
+          setTimeout(function(){
+            const template = `
+            <style>
+              ul.view-target > div >li {
+                color: #FFF;
+              }
+            </style>
+            <div class="inner-wrap">
+              <li><div><p>リストアイテムひとつめ<p></div></li>
+              <li><div><p>リストアイテムふたつめ<p></div></li>
+            </div>
+            `
+            $(".scroll-append-list").append(template)
+          },1000)
+        }
       })
     })
   </script>
