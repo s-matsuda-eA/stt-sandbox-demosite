@@ -29,7 +29,8 @@
       スクロールイベントによる要素追加<br>
       こちらはstyleタグをul直下に挟んでいる
     </p>
-    <a href="./second.html">contents</a>
+    <a href="./index.html">問題なしパターン</a>    
+    <a href="./3rd.html">検証パターン</a>
   </main>
   <section class="view-target">
     <h2>スクロールイベント</h2>
@@ -40,13 +41,14 @@
   <script>
     $(function() {
       $('.view-target > *').hide()
-      $('.view-target').on('inview', function(e,isInView) {
-        if(isInView){        
+      $('.view-target').on('inview', function(event,isInView) {
+        if(isInView){      
+          if ($('.view-target > h2').css('display') === 'block' ) return
           $('.view-target > *').show()
           setTimeout(function(){
             const template = `
             <style>
-              ul.view-target > div >li {
+              ul.scroll-append-list > div >li {
                 color: #FFF;
               }
             </style>

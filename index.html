@@ -30,6 +30,7 @@
       こちらはstyleタグをulに挟まない為問題なし
     </p>
     <a href="./second.html">事象再現パターン</a>
+    <a href="./3rd.html">検証パターン</a>
   </main>
   <section class="view-target">
     <h2>スクロールイベント</h2>
@@ -42,6 +43,7 @@
       $('.view-target > *').hide()
       $('.view-target').on('inview', function(e,isInView) {
         if(isInView){
+          if ($('.view-target > h2').css('display') === 'block' ) return
           $('.view-target > *').show()
           setTimeout(function(){
             const template = `
