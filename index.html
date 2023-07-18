@@ -40,7 +40,18 @@
       $('.view-target').on('inview', function() {
         $('.view-target > *').show()
         setTimeout(function(){
-          $(".scroll-append-list").append('<li>リストアイテムひとつめ</li>')
+          const template = `
+          <style>
+            ul.scroll-append-list > div > li {
+              color: #FFF
+            }
+          </style>
+          <div class="inner-wrap">
+            <li><div><p>リストアイテムひとつめ<p></div></li>
+            <li><div><p>リストアイテムふたつめ<p></div></li>
+          </div>
+          `
+          $(".scroll-append-list").append(template)
         },1000)
       })
     })
