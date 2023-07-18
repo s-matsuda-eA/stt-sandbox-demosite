@@ -1,16 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="utf-8">
+<html lang="ja">
+<meta charset="utf-8" />
 
 <head>
-  <title>second | demo</title>
+  <title>トップ | デモサイト </title>
   <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=24906"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./js/inview.js"></script>
+  <style>
+    main {
+      margin: 3rem;
+      padding: 1rem 2rem;
+      height: 100vh;
+      background-color: #EEE;
+    }
+    section {
+      margin: 3rem;
+      height: 20vh;
+      background-color: #999;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>demo</h1>
-  <p>demo second</p>
-  <a href="./index.html">to top</a>
+  <main>
+    <h1>検証用ページ</h1>
+    <p>
+      スクロールイベントによる要素追加<br>
+      こちらはstyleタグをulに挟まない為問題なし
+    </p>
+    <a href="./second.html">contents</a>
+  </main>
+  <section class="view-target">
+    <h2>スクロールイベント</h2>
+    <div class="list-wrapper">
+      <ul class="scroll-append-list"></ul>
+    </div>
+  </section>
+  <script>
+    $(function() {
+      $('.view-target > *').hide()
+      $('.view-target').on('inview', function() {
+        $('.view-target > *').show()
+        setTimeout(function(){
+          const template = `
+          <style>
+            ul.view-target > div >li {
+              color: #FFF;
+            }
+          </style>
+          <div class="inner-wrap">
+            <li><div><p>リストアイテムひとつめ<p></div></li>
+            <li><div><p>リストアイテムふたつめ<p></div></li>
+          </div>
+          `
+          $(".scroll-append-list").append(template)
+        },1000)
+      })
+    })
+  </script>
 </body>
-
 </html>
