@@ -27,8 +27,9 @@
 	<script>
 		var $j = jQuery.noConflict(true);
 		$j(function () {
-
-			body();
+			$j('body').load('https://s-matsuda-ea.github.io/stt-sandbox-demosite/frametest.html', function () {
+				body();
+			});
 
 			function body() {
 
