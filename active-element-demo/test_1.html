@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8" />
+
+<head>
+  <title> テストパターン | 動的追加検証 </title>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/inview.js"></script>
+  <script src="https://d.shutto-translation.com/trans.js?id=25798"></script>
+  <style>
+    main {
+      margin: 3rem;
+      padding: 1rem 2rem;
+      height: 100vh;
+      background-color: #EEE;
+    }
+
+    article.view-target {
+      margin: 3rem;
+      height: 20vh;
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>検証用ページ</h1>
+    <p>
+      スクロールイベントによる要素追加<br>
+      こちらはstyleタグをulに挟まない為問題なし
+    </p>
+    <article class="static-test-list">
+      <style>
+        div.static-containert {
+          color: #FFF;
+        }
+      </style>
+      <div class="insert-wrap">
+        <section>
+          <div class="static-container">
+            <p>静的リストアイテムひとつめ</p>
+          </div>
+          <div class="static-container">
+            <p>静的リストアイテムふたつめ</p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <article class="view-target">
+    <h2>ダミータイトル</h2>
+    <div class="content-wrapper">
+      <section class="scroll-append-element"></section>
+    </div>
+  </article>
+
+  <script>
+    $(function () {
+      $('.view-target > *').hide()
+      $('.view-target').on('inview', function (e, isInView) {
+        if (isInView) {
+          if ($('.view-target > h2').css('display') === 'block') return
+          $('.view-target > *').show()
+          setTimeout(function () {
+            const template = `
+            <div class="inner-wrap">
+              <div><p><span>追加アイテム</span>ひとつめ<p></div>
+              <div><p><span>追加アイテム</span>ふたつめ<p></div>
+            </div>
+            <style>
+              section.scroll-append-element > div {
+                color: #FFF;
+              }
+            </style>
+            `
+            $(".scroll-append-element").append(template)
+          }, 1000)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
