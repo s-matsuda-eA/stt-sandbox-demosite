@@ -3,7 +3,7 @@
 <meta charset="utf-8" />
 
 <head>
-  <title> テストパターン | 動的追加検証 </title>
+  <title> 問題回避パターン1 | 動的追加検証 </title>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/inview.js"></script>
@@ -67,14 +67,14 @@
           setTimeout(function () {
             const template = `
             <div class="inner-wrap">
+              <style>
+                section.scroll-append-element > div {
+                  color: #FFF;
+                }
+              </style>
               <div><p><span>追加アイテム</span>ひとつめ<p></div>
               <div><p><span>追加アイテム</span>ふたつめ<p></div>
             </div>
-            <style>
-              section.scroll-append-element > div {
-                color: #FFF;
-              }
-            </style>
             `
             $(".scroll-append-element").append(template)
           }, 1000)
