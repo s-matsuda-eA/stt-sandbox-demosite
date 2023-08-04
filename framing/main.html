@@ -58,6 +58,8 @@
 		<p>本体コンテンツ</p>
 		<p>追加コンテンツ</p>
 		<section>
+			<div id="test"></div>
+			<div id="test2"></div>
 			<script>
 				var $j = jQuery.noConflict(true);
 				$j(function () {
@@ -70,7 +72,7 @@
 						success: function (html) {
 							var html = $j(html).find("#yoshito_pickuparea");
 							//  別ページにあるhtml内の一部の要素を指定
-							$j("#toppicup").append(html);
+							$j("#test").append(html);
 							// append関数を使って取得したhtmlコードの埋め込み先を指定
 						},
 					});
@@ -83,11 +85,10 @@
 						success: function (html) {
 							var html = $j(html).find("#yoshito-de-ORANGE_pickuparea");
 							//  別ページにあるhtml内の一部の要素を指定
-							$j("#top_orangepickup").append(html);
+							$j("#test2").append(html);
 							// append関数を使って取得したhtmlコードの埋め込み先を指定
 						},
 					});
-
 				});
 			</script>
 		</section>
