@@ -39,7 +39,8 @@
 						<li>
 							<a href="#">
 								<div>
-									<iframe id="innner-1" title="inner-frame-1" width="200" height="200" src="inner1.html">
+									<iframe id="innner-1" title="inner-frame-1" width="200" height="200"
+										src="https://s-matsuda-ea.github.io/stt-sandbox-demosite/framing/inner1.html">
 									</iframe>
 								</div>
 							</a>
@@ -47,7 +48,8 @@
 					</ul>
 				</li>
 				<li>
-					<iframe id="innner-2" title="inner-frame-2" width="200" height="200" src="inner2.html">
+					<iframe id="innner-2" title="inner-frame-2" width="200" height="200"
+						src="https://s-matsuda-ea.github.io/stt-sandbox-demosite/framing/inner2.html">
 					</iframe>
 				</li>
 			</ul>
@@ -68,7 +70,7 @@
 						cache: false,
 						datatype: "html",
 						success: function (html) {
-							var html = $j(html).find("section");
+							var html = $j(html)
 							//  別ページにあるhtml内の一部の要素を指定
 							$j("#test").append(html);
 							// append関数を使って取得したhtmlコードの埋め込み先を指定
