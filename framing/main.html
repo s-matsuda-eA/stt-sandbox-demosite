@@ -16,6 +16,7 @@
 		}
 	</style>
 	<script src="https://d.shutto-translation.com/trans.js?id=25798"></script>
+	<meta name="stt-info" stt-embed="" content="state=unmatch">
 	<script src="	https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
@@ -56,6 +57,40 @@
 		<h1>メインページ</h1>
 		<p>本体コンテンツ</p>
 		<p>追加コンテンツ</p>
+		<section>
+			<script>
+				var $j = jQuery.noConflict(true);
+				$j(function () {
+					//**** YOSHITOパーツ読み込み
+					$j.ajax({
+						url: "https://www.yoshito.shop/top_yoshito-parts/",
+						// 別ページにあるhtmlページURL
+						cache: false,
+						datatype: "html",
+						success: function (html) {
+							var html = $j(html).find("#yoshito_pickuparea");
+							//  別ページにあるhtml内の一部の要素を指定
+							$j("#toppicup").append(html);
+							// append関数を使って取得したhtmlコードの埋め込み先を指定
+						},
+					});
+					//**** YOSHITO de ORANGEパーツ読み込み
+					$j.ajax({
+						url: "https://www.yoshito.shop/top_orange-parts/",
+						// 別ページにあるhtmlページURL
+						cache: false,
+						datatype: "html",
+						success: function (html) {
+							var html = $j(html).find("#yoshito-de-ORANGE_pickuparea");
+							//  別ページにあるhtml内の一部の要素を指定
+							$j("#top_orangepickup").append(html);
+							// append関数を使って取得したhtmlコードの埋め込み先を指定
+						},
+					});
+
+				});
+			</script>
+		</section>
 	</main>
 </body>
 
