@@ -70,10 +70,10 @@
 						cache: false,
 						datatype: "html",
 						success: function (html) {
-							var html = $j(html)
+							var htmlObj = $j(html)
 							//  別ページにあるhtml内の一部の要素を指定
 							console.log("ajax %o", html)
-							$j("#test").append(html[7]);
+							$j("#test").append(htmlObj[7]);
 							// append関数を使って取得したhtmlコードの埋め込み先を指定
 						},
 					});
