@@ -22,20 +22,20 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/3.2.4/ofi.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js"></script>
 	<script>
-		// var $j = jQuery.noConflict(true);
-		// $j(function () {
-		// 	$j('#insert-contents').load('https://s-matsuda-ea.github.io/stt-sandbox-demosite/framing/main.html main', function (res) {
-		// 		console.log("res: %o", res)
-		// 	})
-		// });
+		var $j = jQuery.noConflict(true);
+		$j(function () {
+			$j('#insert-contents').load('https://s-matsuda-ea.github.io/stt-sandbox-demosite/framing/main.html', function (res) {
+				console.log("res: %o", res)
+			})
+		});
 	</script>
 </head>
 
 <body>
-	<header>
+	<!-- <header>
 		<h1>元ページの見出し</h1>
 	</header>
-	<div id="insert-contents"></div>
+	<div id="insert-contents"></div> -->
 </body>
 
 </html>
