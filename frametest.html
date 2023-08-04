@@ -24,7 +24,8 @@
 	<script>
 		var $j = jQuery.noConflict(true);
 		$j(function () {
-			$j('body').load('https://s-matsuda-ea.github.io/stt-sandbox-demosite/framing/main.html body', function (res) {
+			$j('body').load('https://s-matsuda-ea.github.io/stt-sandbox-demosite/framing/main.html body#target-contents', function (res) {
+				$(res)
 				console.log("res: %o", res)
 			})
 		});
